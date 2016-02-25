@@ -24,13 +24,13 @@ public class Cash {
                 cont100++;
                 amount -= 100;
                 bills[] =
-            }else if( amount >= 50){
-                cont50++;
-                amount -= 50;
-            }else if( amount >= 20){
+            }else if(50 <= amount){
+               cont50++;
+               amount = amount - 50;
+            }else if(amount >= 20){
                 cont20++;
                 amount -= 20;
-            }else if( amount >= 10){
+            }else if( amount >= 10 ){
                 cont10++;
                 amount -= 10;
             }
