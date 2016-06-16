@@ -56,4 +56,19 @@ public class PrimeWordsImpl implements PrimeWords {
         }
         return value;
     }
+
+    public boolean isPrimeNumber(int numberToCheck) {
+        int divider = 0;
+        for (int i = 0 ; i <= numberToCheck ; i ++) {
+            if(numberToCheck % i == 0) {
+                divider ++;
+            }
+        }
+        if ( divider == 2 ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
