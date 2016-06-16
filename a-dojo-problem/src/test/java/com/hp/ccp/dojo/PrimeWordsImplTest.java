@@ -1,5 +1,6 @@
 package com.hp.ccp.dojo;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class PrimeWordsImplTest {
 
@@ -36,15 +40,14 @@ public class PrimeWordsImplTest {
     }
 
     @Test
-    public void sumTheWords_checkIfIsValid() {
-
+    public void isPrimeWord_3as_shouldReturnTrue() {
+        assertTrue(primeWords.isPrimeWord("aaa"));
     }
 
     @Test
-    public void isPrimeWord_passWordPrime_true(){
-
+    public void isPrimeWord_3As_shouldReturnFalse(){
+        assertFalse(primeWords.isPrimeWord("AAA"));
     }
-
 
     @Test
     public void isPrimeWord_passNonWordPrime_false(){
