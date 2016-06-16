@@ -39,15 +39,24 @@ public class PrimeWordsImpl implements PrimeWords {
     }
     
     public boolean isPrimeWord(String word) {
-        int sum = sumPrimeWord(word);
+        int sum = 0;
+        try {
+            sum = sumPrimeWord(word);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return isPrimeNumber(sum);
     }
 
-    public int sumPrimeWord(String word) {
+    public int sumPrimeWord(String word) throws Exception {
         int value = 0;
         char[] letters = word.toCharArray();
 
         for(int i = 0; i < letters.length; i++) {
+            if (mapper.get(Character.toLowerCase(letters[i])) == null) {
+                throw new Exception(new IllegalArgumentException("Faz direito Pô!"));
+            }
+
             // if the char is a letter, we sum the corresponding value
             if (Character.isLetter(letters[i])) {
                 if (Character.isUpperCase(letters[i])) {
