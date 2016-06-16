@@ -20,25 +20,6 @@ public class PrimeWordsImplTest {
 
     Map<String, Integer> alphabet = new HashMap<String, Integer>();
 
-    @Before
-    public void initilizeAlphabet() {
-        ArrayList alpha = new ArrayList<String>(
-                Arrays.asList("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"));
-        for (int i = 0 ; i < alpha.size(); i++) {
-            alphabet.put(alpha.get(i).toString(), i);
-        }
-
-        for (int i = 0 ; i < alpha.size(); i++) {
-            alphabet.put(alpha.get(i).toString(), i);
-        }
-    }
-
-
-    @Test
-    public void checkIfNumberIsPrime() {
-
-    }
-
     @Test
     public void isPrimeWord_3as_shouldReturnTrue() {
         assertTrue(primeWords.isPrimeWord("aaa"));
@@ -50,7 +31,7 @@ public class PrimeWordsImplTest {
     }
 
     @Test
-    public void isPrimeWord_passNonWordPrime_false(){
-
+    public void isPrimeWord_withNumberAndLetters_shouldExcludeNumbers(){
+        assertTrue(primeWords.isPrimeWord("aaa24566--.,@#!@#$%¨&*()_+B"));
     }
 }
