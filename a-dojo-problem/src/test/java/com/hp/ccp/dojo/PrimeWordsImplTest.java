@@ -34,4 +34,19 @@ public class PrimeWordsImplTest {
     public void isPrimeWord_emptyString_shouldExcludeNumbers(){
         assertFalse(primeWords.isPrimeWord(""));
     }
+
+    @Test
+    public void isPrimeWord_withSpace_shouldExcludeNumbers(){
+        assertTrue(primeWords.isPrimeWord("aa   123  bc"));
+    }
+
+    @Test
+    public void isPrimeWord_withEscapeChar_shouldExcludeNumbers(){
+        assertTrue(primeWords.isPrimeWord("\taaa"));
+    }
+
+    @Test
+    public void isPrimeWord_withUnicodeChar_shouldExcludeNumbers(){
+        assertTrue(primeWords.isPrimeWord("\u1024\u0234\u0934aaa"));
+    }
 }
