@@ -46,7 +46,12 @@ public class PrimeWordsImplTest {
     }
 
     @Test
-    public void isPrimeWord_withUnicodeChar_shouldExcludeNumbers(){
+    public void isPrimeWord_withUnicodeChar_shouldExcludeUnicode(){
         assertTrue(primeWords.isPrimeWord("\u1024\u0234\u0934aaa"));
+    }
+
+    @Test
+    public void isPrimeWord_nullValue_shouldReturnFalse(){
+        assertFalse(primeWords.isPrimeWord(null));
     }
 }
