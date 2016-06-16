@@ -1,12 +1,7 @@
 package com.hp.ccp.dojo;
 
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,5 +28,10 @@ public class PrimeWordsImplTest {
     @Test
     public void isPrimeWord_withNumberAndLetters_shouldExcludeNumbers(){
         assertTrue(primeWords.isPrimeWord("aaa24566--.,@#!@#$%¨&*()_+B"));
+    }
+
+    @Test
+    public void isPrimeWord_emptyString_shouldExcludeNumbers(){
+        assertFalse(primeWords.isPrimeWord(""));
     }
 }
