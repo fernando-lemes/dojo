@@ -36,16 +36,20 @@ public class PrimeWordsImpl implements PrimeWords {
         mapper.put("z", 26);
     }
     public boolean isPrimeWord(String word) {
+
+        return false;
+    }
+
+    public int sumPrimeWord(String word) {
         int value = 0;
         char[] letters = word.toCharArray();
         for(int i = 0; i < letters.length; i++) {
             if(Character.isUpperCase(letters[i])) {
-                value += mapper.get(Character.toLowerCase(letters[i]));
+                value += mapper.get(Character.toLowerCase(letters[i])) + 26;
             } else {
-
+                value += mapper.get(letters[i]);
             }
         }
-        return false;
+        return value;
     }
-
 }
