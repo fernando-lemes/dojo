@@ -35,21 +35,41 @@ public class PrimeWordsImpl implements PrimeWords {
         mapper.put("y", 25);
         mapper.put("z", 26);
     }
+    
     public boolean isPrimeWord(String word) {
-
-        return false;
+        int sum = sumPrimeWord(word);
+        return isPrimeNumber(sum);
     }
 
     public int sumPrimeWord(String word) {
         int value = 0;
         char[] letters = word.toCharArray();
         for(int i = 0; i < letters.length; i++) {
-            if(Character.isUpperCase(letters[i])) {
-                value += mapper.get(Character.toLowerCase(letters[i])) + 26;
-            } else {
-                value += mapper.get(letters[i]);
+            // if the char is a letter, we sum the corresponding value
+            if (Character.isLetter(letters[i])) {
+                if (Character.isUpperCase(letters[i])) {
+                    value += mapper.get(Character.toLowerCase(letters[i])) + 26;
+                } else {
+                    value += mapper.get(letters[i]);
+                }
             }
+            // if the char is not a letter, we ignore it
         }
         return value;
     }
+
+    public boolean isPrimeNumber(int numberToCheck) {
+        int divider = 0;
+        for (int i = 0 ; i <= numberToCheck ; i ++) {
+            if(numberToCheck % i == 0) {
+                divider ++;
+            }
+        }
+        if ( divider == 2 ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
