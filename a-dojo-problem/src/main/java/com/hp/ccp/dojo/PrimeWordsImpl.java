@@ -35,9 +35,10 @@ public class PrimeWordsImpl implements PrimeWords {
         mapper.put("y", 25);
         mapper.put("z", 26);
     }
+    
     public boolean isPrimeWord(String word) {
-
-        return false;
+        int sum = sumPrimeWord(word);
+        return isPrimeNumber(sum);
     }
 
     public int sumPrimeWord(String word) {
